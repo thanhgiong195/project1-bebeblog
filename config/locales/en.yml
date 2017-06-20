@@ -1,33 +1,90 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      title: "BebeBlog"
+    footer:
+      blog: "The BebeBlog by"
+      name: "Thanh Giong"
+      about: "About"
+      contact: "Contact"
+    header:
+      hi: "Hi"
+      profile: "Profile"
+      setting: "Setting"
+      log_out: "Log out"
+      log_in: "Log in"
+      search: "Search"
+  sessions:
+    create:
+      welcome: "Welcome back <3."
+      login_fail: "Invalid emailThe form contains/password combination"
+    new:
+      log_in: "Log in"
+      email: "Email"
+      password: "Password"
+      new_user: "New user?"
+      sign_up_now: "Sign up now!"
+      remember_me: "Remember me"
+    destroy:
+      good_bye: "Good bye."
+  users:
+    create:
+      welcome: "Welcome you to BebeBlog"
+      error: "Error"
+    new:
+      sign_up: "Sign up"
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirm: "Password confirmation"
+      btn_create_acc: "Create my account"
+    edit:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirm: "Password confirmation"
+      edit_user: "Edit user"
+      btn_submit: "Save changes"
+      pl_login: "Please log in."
+    update:
+      update_success: "Profile updated"
+      update_fail: "Update error!"
+    index:
+      all_users: "User"
+      avatar: "Avatar"
+      name: "Name"
+      email: "Email"
+      delete: "Delete"
+      admin: "Admin"
+      pl_login: "Please login!"
+    user:
+      cofirm_delete: "You sure delete?"
+    destroy:
+      delete_success: "Delete success"
+    show:
+      pl_login: "Please log in!"
+  shared:
+    error_messages:
+      the_form: "The form contains"
+      error: "error"
+    authorpost_form:
+      placeholder: "What's on your mind?"
+      post: "Post"
+  authorposts:
+    create:
+      post_success: "Authorpost created"
+      post_error: "Post error!"
+    destroy:
+      delete_success: "Authorpost delete!"
+      delete_error: "Delete authorpost error!"
+    authorpost:
+      post: "Post"
+      ago: "ago"
+      delete: "Delete"
+      you_sure: "You sure delete?"
+  static_pages:
+    home:
+      authorpost: "Authorpost"
+      post: "Post"
+    about:
+      about: "About"
