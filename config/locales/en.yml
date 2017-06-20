@@ -17,7 +17,7 @@ en:
   sessions:
     create:
       welcome: "Welcome back <3."
-      login_fail: "Invalid emailThe form contains/password combination"
+      login_fail: "Invalid email/password combination"
     new:
       log_in: "Log in"
       email: "Email"
