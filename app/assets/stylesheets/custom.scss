@@ -257,6 +257,7 @@ aside {
     padding: 10px 0;
   }
   .user {
+    font-size: 20px;
     margin-top: 5em;
     padding-top: 0;
   }
@@ -269,13 +270,17 @@ aside {
     }
   }
   .timestamp {
+    .time-comment {
+      float: right;
+    }
     color: $gray-light;
     display: block;
     margin-left: 60px;
   }
   .gravatar {
     float: left;
-    margin: 5px 10px 0;
+    margin: 5px 10px 0 0;
+    border-radius: 10px;
   }
 }
 
@@ -287,12 +292,26 @@ aside {
 }
 
 .picture {
+  display: flex;
   margin-top: 10px;
   input {
     border: 0;
   }
+  .btn-post {
+    flex: 5;
+  }
 }
 
-.comment {
-  width: 15%;
+.box-comment {
+  display: flex;
+  .f-comment {
+  }
+  .comment {
+    flex: 5;
+  }
+}
+
+.post-title {
+  text-align: center;
+  font-size: 50px;
 }

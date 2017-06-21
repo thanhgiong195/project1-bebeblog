@@ -8,7 +8,7 @@ avatar:
   size_home: 50
 newspost:
   number: 15
-  content_size: 300
+  content_size: 1000
   picture_size: 5
 picture:
   picture_size: 600

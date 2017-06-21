@@ -39,6 +39,7 @@ en:
       password: "Password"
       password_confirm: "Password confirmation"
       btn_create_acc: "Create my account"
+      pl_login: "Please login!"
     edit:
       name: "Name"
       email: "Email"
@@ -94,13 +95,15 @@ en:
       delete_error: "Delete newspost error!"
     newspost:
       post: "Post"
-      ago: "ago"
+      comment: "comment"
+      a: "ago"
       delete: "Delete"
       you_sure: "You sure delete?"
   static_pages:
     home:
       newspost: "Newfeed"
       post: "Post"
+      comment: "comment"
       sign_up: "Sign up now!"
     about:
       about: "About"
@@ -113,3 +116,8 @@ en:
       you_sure: "You sure?"
       delete: "Delete"
       enter_comment: "Enter comment here"
+    create:
+      post_error: "Error create post"
+      post_success: "Post success"
+    destroy:
+      delete_success: "Delete post success"
