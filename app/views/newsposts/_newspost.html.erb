@@ -7,28 +7,35 @@
     <%= image_tag newspost.picture.url if newspost.picture? %>
   </span>
   <span class="timestamp">
-    <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> <%= t ".ago" %>.
-    <%= newspost.comments.size %> (<%= t ".comments" %>)
+    <small>
+      <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> ago.
+        (<%= newspost.comments.size %> <%= t ".comments" %>)
+    </small>
     <% if current_user.current_user?(newspost.user) %>
       <%= link_to t(".delete"), newspost, method: :delete,
         data: {confirm: t(".you_sure")}, class: "btn-sm btn-warning" %>
     <% end %>
-  </span>
-  <span>
+    <br>
     <% newspost.comments.each do |comment| %>
-      <strong><%= link_to comment.user.name, comment.user %>:</strong>
+      <%= link_to comment.user.name, comment.user %>:
       <%= comment.content %>
-      <% if current_user.current_user?(comment.user) ||
-        current_user.current_user?(newspost.user)%>
-      <%= link_to t(".delete"), [comment.newspost, comment],
-        method: :delete, data: {confirm: t(".you_sure")} %>
-      <% end %>
+      <small class="time-comment">
+        (<%= t ".post" %> <%= time_ago_in_words(comment.created_at) %> ago)
+        <% if current_user.current_user?(comment.user) ||
+          current_user.current_user?(newspost.user)%>
+          <%= link_to t(".delete"), [comment.newspost, comment],
+            method: :delete, data: {confirm: t(".you_sure")} %>
+        <% end %>
+      </small>
       <br>
     <% end %>
-    <%= form_for([newspost, newspost.comments.build]) do |f| %>
-      <%= f.label :comment, t(".comment") %>:
-      <%= f.text_field :content, placeholder: t(".enter_comment"), class: "form-control" %>
-      <%= f.submit t(".comment"), class: "btn btn-primary comment" %>
-    <% end %>
+      <%= form_for([newspost, newspost.comments.build]) do |f| %>
+        <%= f.label :comment, t(".comment") %>:
+        <div class="box-comment">
+          <%= f.text_field :content, placeholder: t(".enter_comment"),
+            class: "form-control f-comment" %>
+          <%= f.submit t(".comment"), class: "btn-sm btn-primary comment" %>
+        </div>
+      <% end %>
   </span>
 </li>

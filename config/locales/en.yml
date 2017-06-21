@@ -94,7 +94,7 @@ en:
       delete_error: "Delete newspost error!"
     newspost:
       post: "Post"
-      ago: "ago"
+      a: "ago"
       delete: "Delete"
       you_sure: "You sure delete?"
   static_pages:
@@ -113,3 +113,8 @@ en:
       you_sure: "You sure?"
       delete: "Delete"
       enter_comment: "Enter comment here"
+    create:
+      post_error: "Error create post"
+      post_success: "Post success"
+    destroy:
+      delete_success: "Delete post success"
