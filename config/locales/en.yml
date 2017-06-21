@@ -63,6 +63,16 @@ en:
       delete_success: "Delete success"
     show:
       pl_login: "Please log in!"
+    following:
+      following: "Following"
+    followers:
+      followers: "Followers"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    show_follow:
+      view_profile: "view my profile"
   shared:
     error_messages:
       the_form: "The form contains"
@@ -70,6 +80,10 @@ en:
     newspost_form:
       placeholder: "What's on your mind?"
       post: "Post"
+    stats:
+      followers: "followers"
+      following: "following"
+      newspost: "Newspost"
   newsposts:
     create:
       post_success: "Newspost created"
@@ -89,3 +103,5 @@ en:
       sign_up: "Sign up now!"
     about:
       about: "About"
+  picture:
+    alert: "Maximum file size is 5MB. Please choose a smaller file."

@@ -8,8 +8,8 @@
     <tr>
       <th><%= t ".avatar" %></th>
       <th><%= t ".name" %></th>
-      <th><%= t ".email" %></th>
       <% if current_user.is_admin? %>
+        <th><%= t ".email" %></th>
         <th><%= t ".delete" %></th>
       <% end %>
     </tr>
