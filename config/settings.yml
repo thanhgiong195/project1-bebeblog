@@ -12,3 +12,6 @@ newspost:
   picture_size: 5
 picture:
   picture_size: 600
+seed:
+  take: 10
+  content: 10

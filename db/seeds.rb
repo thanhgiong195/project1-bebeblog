@@ -14,8 +14,15 @@ User.create! name: "Be Thanh Giong",
     password_confirmation: password
 end
 
-users = User.order(:created_at).take 10
+users = User.order(:created_at).take Settings.seed.take
 10.times do
-  content = Faker::Lorem.sentence 10
-  users.each{|user| user.newsposts.create!(content: content)}
+  content = Faker::Lorem.sentence Settings.seed.content
+  users.each{|user| user.newsposts.create! content: content}
 end
+
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each{|followed| user.follow followed}
+followers.each{|follower| follower.follow user}

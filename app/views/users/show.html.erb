@@ -8,10 +8,13 @@
         <%= @user.email %>
       </h1>
     </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
   </aside>
   <div class="col-md-8">
+    <%= render "follow_form" if logged_in? %>
     <% if @user.newsposts.any? %>
-      <h3>newsposts (<%= @user.newsposts.size %>)</h3>
       <ol class="newsposts">
         <%= render @newsposts %>
       </ol>
