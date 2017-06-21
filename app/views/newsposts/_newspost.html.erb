@@ -1,5 +1,6 @@
 <li id="newspost-<%= newspost.id %>">
-  <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home), newspost.user %>
+  <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home),
+    newspost.user %>
   <span class="user"><%= link_to newspost.user.name, newspost.user %></span>
   <span class="content">
     <%= newspost.content %>
@@ -7,9 +8,27 @@
   </span>
   <span class="timestamp">
     <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> <%= t ".ago" %>.
+    <%= newspost.comments.size %> (<%= t ".comments" %>)
     <% if current_user.current_user?(newspost.user) %>
       <%= link_to t(".delete"), newspost, method: :delete,
         data: {confirm: t(".you_sure")}, class: "btn-sm btn-warning" %>
+    <% end %>
+  </span>
+  <span>
+    <% newspost.comments.each do |comment| %>
+      <strong><%= link_to comment.user.name, comment.user %>:</strong>
+      <%= comment.content %>
+      <% if current_user.current_user?(comment.user) ||
+        current_user.current_user?(newspost.user)%>
+      <%= link_to t(".delete"), [comment.newspost, comment],
+        method: :delete, data: {confirm: t(".you_sure")} %>
+      <% end %>
+      <br>
+    <% end %>
+    <%= form_for([newspost, newspost.comments.build]) do |f| %>
+      <%= f.label :comment, t(".comment") %>:
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.submit t(".comment"), class: "btn btn-primary comment" %>
     <% end %>
   </span>
 </li>
