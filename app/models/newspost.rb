@@ -1,11 +1,6 @@
 class Newspost < ApplicationRecord
   belongs_to :user
-
-  scope :feed_sort, ->{order created_at: :desc}
-  scope :load_feed, ->(id, following_ids) do
-    where "user_id IN (#{following_ids}) OR user_id = :user_id",
-      following_ids: following_ids, user_id: id
-  end
+  has_many :comments, dependent: :destroy
 
   mount_uploader :picture, PictureUploader
 
@@ -13,6 +8,12 @@ class Newspost < ApplicationRecord
   validates :content, presence: true,
     length: {maximum: Settings.newspost.content_size}
   validate :picture_size
+
+  scope :feed_sort, ->{order created_at: :desc}
+  scope :load_feed, ->(id, following_ids) do
+    where "user_id IN (#{following_ids}) OR user_id = :user_id",
+      following_ids: following_ids, user_id: id
+  end
 
   private
 
