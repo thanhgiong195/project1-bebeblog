@@ -70,6 +70,8 @@ class User < ApplicationRecord
     following.include? other_user
   end
 
+  scope :search, ->search{where "name LIKE ?", "%#{search}%"}
+
   private
 
   def downcase_email
