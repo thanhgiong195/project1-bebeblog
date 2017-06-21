@@ -15,3 +15,5 @@ picture:
 seed:
   take: 10
   content: 10
+comment:
+  comment_max_size: 150

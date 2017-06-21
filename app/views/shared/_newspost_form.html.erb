@@ -1,7 +1,7 @@
 <%= form_for @newspost do |f| %>
   <%= render "shared/error_messages", object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: t(".placeholder") %>
+    <%= f.text_area :content, placeholder: t(".placeholder"), class: "form-control" %>
   </div>
   <span class="picture">
     <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
