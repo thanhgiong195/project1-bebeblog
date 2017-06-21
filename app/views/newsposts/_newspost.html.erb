@@ -27,7 +27,7 @@
     <% end %>
     <%= form_for([newspost, newspost.comments.build]) do |f| %>
       <%= f.label :comment, t(".comment") %>:
-      <%= f.text_field :content, class: "form-control" %>
+      <%= f.text_field :content, placeholder: t(".enter_comment"), class: "form-control" %>
       <%= f.submit t(".comment"), class: "btn btn-primary comment" %>
     <% end %>
   </span>

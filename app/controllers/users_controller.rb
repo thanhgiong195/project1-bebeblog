@@ -29,8 +29,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:name).page(params[:page]).
-      per_page Settings.newspost.number
+    if params[:q]
+      @users = User.search(params[:q]).order(:name).page(params[:page]).
+        per_page Settings.newspost.number
+    else
+      @users = User.order(:name).page(params[:page]).
+        per_page Settings.newspost.number
+    end
   end
 
   def update
