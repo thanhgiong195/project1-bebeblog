@@ -1,0 +1,15 @@
+<li id="newspost-<%= newspost.id %>">
+  <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home), newspost.user %>
+  <span class="user"><%= link_to newspost.user.name, newspost.user %></span>
+  <span class="content">
+    <%= newspost.content %>
+    <%= image_tag newspost.picture.url if newspost.picture? %>
+  </span>
+  <span class="timestamp">
+    <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> <%= t ".ago" %>.
+    <% if current_user.current_user?(newspost.user) %>
+      <%= link_to t(".delete"), newspost, method: :delete,
+        data: {confirm: t(".you_sure")}, class: "btn-sm btn-warning" %>
+    <% end %>
+  </span>
+</li>

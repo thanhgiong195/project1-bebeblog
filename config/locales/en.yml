@@ -67,24 +67,24 @@ en:
     error_messages:
       the_form: "The form contains"
       error: "error"
-    authorpost_form:
+    newspost_form:
       placeholder: "What's on your mind?"
       post: "Post"
-  authorposts:
+  newsposts:
     create:
-      post_success: "Authorpost created"
+      post_success: "Newspost created"
       post_error: "Post error!"
     destroy:
-      delete_success: "Authorpost delete!"
-      delete_error: "Delete authorpost error!"
-    authorpost:
+      delete_success: "Newspost delete!"
+      delete_error: "Delete newspost error!"
+    newspost:
       post: "Post"
       ago: "ago"
       delete: "Delete"
       you_sure: "You sure delete?"
   static_pages:
     home:
-      authorpost: "Authorpost"
+      newspost: "Newfeed"
       post: "Post"
       sign_up: "Sign up now!"
     about:

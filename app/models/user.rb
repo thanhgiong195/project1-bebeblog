@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  has_many :newsposts, dependent: :destroy
+
   before_save :downcase_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -9,7 +11,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: Settings.user.email_max},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-    length: {minimum: Settings.user.password_min}
+    length: {minimum: Settings.user.password_min}, allow_nil: true
 
   has_secure_password
 
@@ -41,6 +43,10 @@ class User < ApplicationRecord
 
   def current_user? user
     self == user
+  end
+
+  def feed
+    Newspost.load_feed id
   end
 
   private
