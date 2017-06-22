@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-<li id="newspost-<%= newspost.id %>">
-  <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home),
-    newspost.user %>
-  <span class="user"><%= link_to newspost.user.name, newspost.user %></span>
-  <span class="content">
-    <strong class="title"><%= newspost.title %></strong><br>
-    <%= newspost.content %>
-    <%= image_tag newspost.picture.url if newspost.picture? %>
-  </span>
-  <span class="timestamp">
-    <small>
-      <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> ago.
-=======
 <div class="card">
   <div class="card-block post-card">
     <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home),
@@ -24,7 +10,6 @@
       <span class="timestamp">
       <small>
         <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> ago.
->>>>>>> 9c8548d... Finish
         (<%= newspost.comments.size %> <%= t ".comments" %>)
       </small>
       <% if logged_in? %>
