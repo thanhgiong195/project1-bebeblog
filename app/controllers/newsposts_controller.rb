@@ -1,11 +1,6 @@
 class NewspostsController < ApplicationController
-<<<<<<< HEAD
-  #before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
-=======
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: [:destroy, :edit, :update]
->>>>>>> 9c8548d... Finish
 
   def create
     @newspost = current_user.newsposts.build newspost_params
@@ -46,7 +41,7 @@ class NewspostsController < ApplicationController
   private
 
   def newspost_params
-    params.require(:newspost).permit :content, :picture
+    params.require(:newspost).permit :title, :content, :picture
   end
 
   def correct_user

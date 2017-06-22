@@ -4,6 +4,11 @@ User.create! name: "Be Thanh Giong",
   password_confirmation: "123123",
   is_admin: true
 
+User.create! name: "Deumi",
+  email: "dkcbvn@gmail.com",
+  password: "123123",
+  password_confirmation: "123123"
+
 20.times do |n|
   name = Faker::Name.name
   email = "bebe-#{n+1}@railstutorial.org"
@@ -14,10 +19,11 @@ User.create! name: "Be Thanh Giong",
     password_confirmation: password
 end
 
-users = User.order(:created_at).take 10
-10.times do
-  content = Faker::Lorem.sentence 10
-  users.each{|user| user.newsposts.create! content: content}
+users = User.order(:created_at).take 20
+20.times do
+  title = Faker::Lorem.sentence 10
+  content = Faker::Lorem.sentence 20
+  users.each{|user| user.newsposts.create! title: title, content: content}
 end
 
 users = User.all
