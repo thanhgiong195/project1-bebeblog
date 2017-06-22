@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <li id="newspost-<%= newspost.id %>">
   <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home),
     newspost.user %>
@@ -10,41 +11,58 @@
   <span class="timestamp">
     <small>
       <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> ago.
+=======
+<div class="card">
+  <div class="card-block post-card">
+    <%= link_to gravatar_for(newspost.user, size: Settings.avatar.size_home),
+      newspost.user %>
+    <span class="user"><%= link_to newspost.user.name, newspost.user %></span>
+    <h4 class="card-title title"><%= newspost.title %></h4>
+    <div class="card-text">
+      <%= newspost.content %>
+      <%= image_tag newspost.picture.url if newspost.picture? %>
+      <span class="timestamp">
+      <small>
+        <%= t ".post" %> <%= time_ago_in_words(newspost.created_at) %> ago.
+>>>>>>> 9c8548d... Finish
         (<%= newspost.comments.size %> <%= t ".comments" %>)
-    </small>
-    <% if logged_in? %>
-      <% if current_user.current_user?(newspost.user) %>
-        <%= link_to t(".delete"), newspost, method: :delete,
-          data: {confirm: t(".you_sure")}, class: "btn-sm btn-warning" %>
+      </small>
+      <% if logged_in? %>
+        <% if current_user.current_user?(newspost.user) %>
+          <%= link_to "Edit", edit_newspost_path(newspost), class: "btn-sm btn-warning"%>
+          <%= link_to t(".delete"), newspost, method: :delete,
+            data: {confirm: t(".you_sure")}, class: "btn-sm btn-danger" %>
+        <% end %>
       <% end %>
-    <% end %>
-    <br>
-    <% newspost.comments.each do |comment| %>
-      <%= link_to comment.user.name, comment.user %>:
-      <%= comment.content %>
-      <small class="time-comment">
-        (<%= t ".comment" %> <%= time_ago_in_words(comment.created_at) %> ago)
+      <br>
+      <% newspost.comments.each do |comment| %>
+        <%= link_to comment.user.name, comment.user %>:
+        <%= comment.content %>
+        <small class="time-comment">
+          (<%= t ".comment" %> <%= time_ago_in_words(comment.created_at) %> ago)
+          <% if logged_in? %>
+            <% if current_user.current_user?(comment.user) ||
+              current_user.current_user?(newspost.user)%>
+              <%= link_to t(".delete"), [comment.newspost, comment],
+                method: :delete, data: {confirm: t(".you_sure")} %>
+            <% end %>
+          <% end %>
+        </small>
+        <br>
+        <% end %>
         <% if logged_in? %>
-          <% if current_user.current_user?(comment.user) ||
-            current_user.current_user?(newspost.user)%>
-            <%= link_to t(".delete"), [comment.newspost, comment],
-              method: :delete, data: {confirm: t(".you_sure")} %>
+          <% if current_user.following?(@user) or current_user.current_user?(@user) %>
+            <%= form_for([newspost, newspost.comments.build]) do |f| %>
+              <%= f.label :comment, t(".comment") %>:
+              <div class="box-comment">
+                <%= f.text_field :content, placeholder: t(".enter_comment"),
+                  class: "form-control f-comment" %>
+                <%= f.submit t(".comment"), class: "btn-sm btn-primary comment" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      </small>
-      <br>
-    <% end %>
-    <% if logged_in? %>
-      <% if current_user.following?(@user) or current_user.current_user?(@user) %>
-        <%= form_for([newspost, newspost.comments.build]) do |f| %>
-          <%= f.label :comment, t(".comment") %>:
-          <div class="box-comment">
-            <%= f.text_field :content, placeholder: t(".enter_comment"),
-              class: "form-control f-comment" %>
-            <%= f.submit t(".comment"), class: "btn-sm btn-primary comment" %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-  </span>
-</li>
+      </span>
+    </div>
+  </div>
+</div>
