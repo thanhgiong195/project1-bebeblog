@@ -4,7 +4,7 @@
     <%= f.text_field :title, placeholder: t(".title"), class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.text_area :content, placeholder: t(".placeholder"), class: "form-control" %>
+    <%= f.text_area :content, placeholder: t(".placeholder"), rows: "8", class: "form-control" %>
   </div>
   <span class="picture">
     <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>

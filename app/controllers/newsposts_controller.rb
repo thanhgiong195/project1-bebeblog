@@ -1,6 +1,6 @@
 class NewspostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:destroy, :edit, :update]
 
   def create
     @newspost = current_user.newsposts.build newspost_params
@@ -12,6 +12,19 @@ class NewspostsController < ApplicationController
       flash.now[:danger] = t ".post_error"
       @feed_items = []
       render "static_pages/home"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @newspost.update_attributes newspost_params
+      flash[:success] = "Update post success."
+      redirect_to root_url
+    else
+      flash.now[:danger] = "Update fail!"
+      render :edit
     end
   end
 

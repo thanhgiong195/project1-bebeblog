@@ -249,6 +249,10 @@ aside {
 
 /* newsposts */
 
+.card {
+  margin-bottom: 20px;
+}
+
 .newsposts {
   list-style: none;
   padding: 0;
@@ -266,8 +270,8 @@ aside {
       font-weight: bold;
     }
     padding-top: 3px;
+    padding-left: 60px;
     display: block;
-    margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
@@ -279,7 +283,6 @@ aside {
     }
     color: $gray-light;
     display: block;
-    margin-left: 60px;
   }
   .gravatar {
     float: left;
