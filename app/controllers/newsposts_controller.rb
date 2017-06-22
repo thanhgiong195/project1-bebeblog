@@ -1,5 +1,5 @@
 class NewspostsController < ApplicationController
-  #before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
   def create
@@ -28,7 +28,7 @@ class NewspostsController < ApplicationController
   private
 
   def newspost_params
-    params.require(:newspost).permit :content, :picture
+    params.require(:newspost).permit :title, :content, :picture
   end
 
   def correct_user

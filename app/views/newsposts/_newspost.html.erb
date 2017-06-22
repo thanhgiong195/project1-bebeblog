@@ -3,6 +3,7 @@
     newspost.user %>
   <span class="user"><%= link_to newspost.user.name, newspost.user %></span>
   <span class="content">
+    <strong class="title"><%= newspost.title %></strong><br>
     <%= newspost.content %>
     <%= image_tag newspost.picture.url if newspost.picture? %>
   </span>

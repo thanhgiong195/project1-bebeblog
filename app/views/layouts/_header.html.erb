@@ -40,6 +40,7 @@
             </ul>
           </div>
         <% else %>
+          <%= link_to t(".h_sign_up"), signup_path, class: "btn btn-outline-info" %>
           <%= link_to t(".log_in"), login_path, class: "btn btn-outline-info" %>
         <% end %>
       </form>

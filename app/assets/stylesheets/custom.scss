@@ -262,6 +262,10 @@ aside {
     padding-top: 0;
   }
   .content {
+    .title {
+      font-weight: bold;
+    }
+    padding-top: 3px;
     display: block;
     margin-left: 60px;
     img {
