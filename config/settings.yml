@@ -9,6 +9,7 @@ avatar:
 newspost:
   number: 15
   content_size: 1000
+  title_size: 200
   picture_size: 5
 picture:
   picture_size: 600
