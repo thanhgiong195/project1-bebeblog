@@ -1,0 +1,2 @@
+$('#comments-list-<%= @newspost.id %>').append('<%= j render partial: "newsposts/comment", locals:{comment: @comment} %>');
+$('#comment-form-<%= @newspost.id %>').html('<%= j render partial: "newsposts/comment_form", locals:{newspost: @newspost} %>');

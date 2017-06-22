@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: Arial !important;
+}
+
 /* universal */
 
 section {
@@ -251,6 +255,9 @@ aside {
 
 .card {
   margin-bottom: 20px;
+  .card-text {
+
+  }
 }
 
 .newsposts {
@@ -278,6 +285,7 @@ aside {
   }
   .timestamp {
     .time-comment {
+      font-size: 12px;
       float: right;
     }
     color: $gray-light;
@@ -313,7 +321,7 @@ aside {
   .f-comment {
   }
   .comment {
-    flex: 5;
+    flex: 2;
   }
 }
 
@@ -321,3 +329,8 @@ aside {
   text-align: center;
   font-size: 50px;
 }
+
+.commentList {
+  padding-left: 0px;
+}
+

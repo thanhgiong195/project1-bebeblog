@@ -1,0 +1,10 @@
+<div class="comment">
+  <%= form_for([newspost, newspost.comments.build], remote: true) do |f| %>
+    <%= f.label :comment, t(".comment") %>:
+    <div class="box-comment comment-form">
+      <%= f.text_field :content, placeholder: t(".enter_comment"),
+       class: "form-control f-comment" %>
+      <%= f.submit t(".comment"), class: "btn-sm btn-primary comment" %>
+    </div>
+  <% end %>
+</div>

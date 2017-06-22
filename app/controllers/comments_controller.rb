@@ -2,15 +2,23 @@ class CommentsController < ApplicationController
   before_action :load_comment, only: [:create, :destroy]
 
   def create
-    @comment = @newspost.comments.create(content: params[:comment][:content],
-      user: current_user)
-    redirect_to root_url
+    @comment = @newspost.comments.build comment_params
+    @comment.user_id = current_user.id
+    @comment.save
+    respond_to do |format|
+      format.html{redirect_to request.referer}
+      format.js
+    end
   end
 
   def destroy
-    @comment = @newspost.comments.find(params[:id])
+    @comment = @newspost.comments.find_by id: params[:id]
+
     @comment.destroy
-    redirect_to root_url
+    respond_to do |format|
+      format.html{redirect_to request.referer}
+      format.js
+    end
   end
 
   private
@@ -20,6 +28,6 @@ class CommentsController < ApplicationController
   end
 
   def load_comment
-     @newspost = Newspost.find(params[:newspost_id])
+    @newspost = Newspost.find_by id: params[:newspost_id]
   end
 end

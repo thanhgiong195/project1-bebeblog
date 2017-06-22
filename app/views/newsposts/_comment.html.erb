@@ -1,0 +1,11 @@
+<div id="comment_<%= comment.id %>">
+    <%= link_to comment.user.name, comment.user %>
+    <%= comment.content %>
+  <span class="time-comment">
+    <%= time_ago_in_words comment.created_at %>
+    <% if current_user.current_user?(comment.user) || current_user.current_user?(newspost.user)%>
+      <%= link_to t(".delete"), [comment.newspost, comment],
+        method: :delete, remote: true, data: {confirm: t(".you_sure")} %>
+    <% end %>
+  </span>
+</div>

@@ -11,16 +11,20 @@ gem "i18n-js"
 gem "jbuilder"
 gem "jquery-rails"
 gem "mini_magick"
+gem "popper_js"
 gem "puma"
 gem "rails"
+gem "rails-assets-tether"
 gem "sass-rails"
 gem "turbolinks"
 gem "uglifier"
 gem "will_paginate"
 gem "will_paginate-bootstrap4"
+gem "tether-rails"
 
 group :development, :test do
   gem "sqlite3"
+  gem "railroady"
   gem "byebug", platform: :mri
 end
 
