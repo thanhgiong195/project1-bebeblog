@@ -15,6 +15,7 @@ en:
       log_in: "Log in"
       search: "Search"
       sign_up: "Sign up now!"
+      h_sign_up: "Sign up"
   sessions:
     create:
       welcome: "Welcome back <3."
@@ -81,6 +82,7 @@ en:
       error: "error"
     newspost_form:
       placeholder: "What's on your mind?"
+      title: "Write title..."
       post: "Post"
     stats:
       followers: "followers"

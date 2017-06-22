@@ -5,6 +5,8 @@ class Newspost < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   validates :user_id, presence: true
+  validates :title, presence: true,
+    length: {maximum: Settings.newspost.title_size}
   validates :content, presence: true,
     length: {maximum: Settings.newspost.content_size}
   validate :picture_size
