@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :newsposts, only: [:create, :destroy] do
+  resources :newsposts, only: [:create, :destroy, :edit, :update] do
     resources :comments
   end
   resources :relationships, only: [:create, :destroy]
